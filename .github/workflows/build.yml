@@ -31,11 +31,8 @@ jobs:
           # When the ref is empty, HEAD will be checked out.
           ref: ${{ github.event.inputs.git-ref }}
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 12
+      - name: Dependencies
+        run: sudo apt-get install --yes nodejs
 
       - name: Test
-        run: |
-          node tests.js
+        run: /usr/bin/node tests.js
